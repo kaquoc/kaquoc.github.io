@@ -64,7 +64,7 @@ body {
     top: 42%;
     transform: translate(-13%,-42%);
 }
-#dog-model{
+.cartoon{
     height: 75%;
     position: absolute;
     bottom: 10%;
