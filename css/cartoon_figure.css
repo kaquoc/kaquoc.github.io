@@ -1,10 +1,10 @@
 .cartoon {
     position: absolute;
     top: 55%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
-    width: 80vmin;
-    height: 80vmin;
+    width: 60vmin;
+    height: 60vmin;
   }
   
   
@@ -30,11 +30,11 @@
   
   /****/
   .cartoon {
-    --skin: #fca; 
-    --iris: #68a;
-    --hair: #fe8;
+    --skin: rgb(230, 164, 119); 
+    --iris: rgb(135, 97, 51);
+    --hair: rgb(27, 26, 24);
     --shirt: #eef4ff;
-    --line: rgba(80,0,0,0.15);
+    --line: rgba(0, 0, 0, 0.15);
   }
   
   .face {
@@ -58,7 +58,7 @@
   }
   
   .neck {
-    width: 15%;
+    width: 20%;
     height: 25%;
     background: var(--skin);
     top: 46%;
@@ -129,7 +129,7 @@
   
   .eye {
     width: 35%;
-    height: 13%;
+    height: 10%;
     background: white;
     border-radius:  80% 90% 30% 40% / 70% 100% 90% 100%;
     top: 28%;
@@ -227,7 +227,7 @@
   
   .hair-front-2 {
     width: 30%;
-    height: 24%;
+    height: 20%;
     background: var(--hair);
     border-radius: 100% 0 120% 0;
     left: 20%;
@@ -237,8 +237,8 @@
   
   .hair-front-2 + .hair-front-2 {
     height: 20%;
-    width: 35%;
-    transform: rotate(7deg);
+    width: 30%;
+    transform: rotate(15deg);
     border-radius: 100% 0 140% 0;
     top: -11.5%;
     left: 42%;
