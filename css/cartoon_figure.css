@@ -27,8 +27,8 @@
   position: absolute;
 }
 .cartoon {
-  --skin: rgb(230, 164, 119); 
-  --iris: rgb(135, 97, 51);
+  --skin: rgb(230, 162, 117); 
+  --iris: rgb(105, 70, 27);
   --hair: rgb(27, 26, 24);
   --shirt: #eef4ff;
   --line: rgba(0, 0, 0, 0.15);
@@ -184,8 +184,8 @@ outline-color: var(--glasses);
 }
 
 .ear {
-  width: 8%;
-  height: 18%;
+  width: 6.5%;
+  height: 13%;
   border-radius: 90% 100% 70% 100% / 70% 100%;
   background: var(--skin);
   box-shadow: inset -9vmin 0 0 -7vmin var(--line);
@@ -243,3 +243,50 @@ outline-color: var(--glasses);
   left: 50%;
   transform:translate(-50%, -50%);
 }
+.hairbang{
+  top: -10%;
+  width: 20%;
+  height:27%;
+  border-radius: 18% 82% 0% 100% / 0% 99% 1% 100% ;
+  background: var(--hair);
+  left: 50%;
+}
+.hairbang + .hairbang{
+  left: 63%;
+  height: 30%;
+  transform: rotate(-13deg);
+}
+.hairbang + .hairbang + .hairbang{
+  left: 73%;
+  transform: rotate(-22deg);
+}
+.hairbang + .hairbang + .hairbang +.hairbang{
+  left: 83%;
+  transform: rotate(-22deg);
+}
+.hairbang + .hairbang + .hairbang +.hairbang +.hairbang{
+  left: 3%;
+
+  transform: scaleX(-1);
+}
+.hairbang + .hairbang + .hairbang +.hairbang +.hairbang + .hairbang{
+  left: 13%;
+  transform: scaleX(-1);
+}
+.hairbang + .hairbang + .hairbang +.hairbang +.hairbang + .hairbang +.hairbang{
+  left: 33%;
+  transform: scaleX(-1);
+}
+.hairbang + .hairbang + .hairbang +.hairbang +.hairbang + .hairbang +.hairbang + .hairbang{
+  left: 23%;
+  transform: scaleX(-1);
+}
+.hairbang + .hairbang + .hairbang +.hairbang +.hairbang + .hairbang +.hairbang + .hairbang + .hairbang{
+  left: -2%;
+  transform: scaleX(-1);
+}
+
+
+
+
+
