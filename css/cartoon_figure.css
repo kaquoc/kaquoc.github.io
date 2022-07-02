@@ -91,16 +91,7 @@
   box-shadow: 0 -0.5vmin var(--line);
   overflow: hidden;
 }
-.pupil {
-  width: 25%;
-  height: 50%;
-  background: #222;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-  box-shadow: 0 0 0 1.6vmin var(--iris);
-}
+
 
 .eye-bright {
   width: 1vmin;
