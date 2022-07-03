@@ -21,8 +21,8 @@ document.onmousemove = (event) => {
     eyeBall2.style.left = x;
     eyeBall2.style.top = y;
     eyeBall2.style.transition = "0s";
-
-    
+    eyeBall2.style.left = x;
+    //commit
 }
 
 document.onmouseout = (event) => {
