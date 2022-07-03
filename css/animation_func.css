@@ -1,5 +1,5 @@
 
-.pupil {
+#pupil_right {
     width: 25%;
     height: 50%;
     background: #222;
@@ -8,6 +8,42 @@
     left: 50%;
     transform: translate(-50%, -40%);
     box-shadow: 0 0 0 1.6vmin var(--iris);
+    transition: 0;
+}
 
+#pupil_left {
+    width: 25%;
+    height: 50%;
+    background: #222;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    box-shadow: 0 0 0 1.6vmin var(--iris);
+    transition: 0;
+}
 
+#eye1 {
+    width: 32%;
+    height: 10%;
+    background: white;
+    border-radius:  80% 90% 30% 40% / 70% 100% 90% 100%;
+    top: 28%;
+    right: 7%;
+    box-shadow: 0 -0.5vmin var(--line);
+    overflow: hidden;
   }
+  #eye2 {
+    width: 32%;
+    height: 10%;
+    background: white;
+    border-radius:  80% 90% 30% 40% / 70% 100% 90% 100%;
+    top: 28%;
+    left: 7%;
+    box-shadow: 0 -0.5vmin var(--line);
+    overflow: hidden;
+  }
+
+
+
+

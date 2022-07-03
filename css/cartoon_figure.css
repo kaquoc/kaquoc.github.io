@@ -81,37 +81,11 @@
   left: 5%;
 
 }
-.eye {
-  width: 32%;
-  height: 10%;
-  background: white;
-  border-radius:  80% 90% 30% 40% / 70% 100% 90% 100%;
-  top: 28%;
-  right: 7%;
-  box-shadow: 0 -0.5vmin var(--line);
-  overflow: hidden;
-}
 
 
-.eye-bright {
-  width: 1vmin;
-  height: 1vmin;
-  background: white;
-  border-radius: 50%;
-  top: 25%;
-  left: 40%;
-  box-shadow: -0.5vmin 0.75vmin 0 -0.25vmin white;
-}
 
-.eye + .eye .eye-bright {
-  left: 50%;
-  box-shadow: 0.5vmin 0.75vmin 0 -0.125vmin white;
-}
-.eye + .eye {
-  transform: scaleX(-1);
-  right: auto;
-  left: 7%;
-}
+
+
 .frame{
 width: 19%;
 height: 0.1%;
