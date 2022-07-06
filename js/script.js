@@ -5,7 +5,6 @@ var eyeBall2 = document.querySelector('#pupil_right');
 //Represents the web page as a series of object, with each object housing their own object
 
 
-
 document.onmousemove = (event) => {
     var x = event.clientX * 100 / window.innerWidth + "%";
     var y = event.clientY * 100 / window.innerHeight + "%";
