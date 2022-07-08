@@ -16,32 +16,63 @@ window.navigator.geolocation
  * which could be access using coords.longitude or coords.latitude
  */
 function success(position) {
-    var longitude = position.coords.longitude;
-    var latitude = position.coords.latitude;
-    console.log(longitude);
+    var user_long = position.coords.longitude;
+    var user_lat = position.coords.latitude;
+
 
     
     //sending a request using JQuerry
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://adsbx-flight-sim-traffic.p.rapidapi.com/api/aircraft/json/"
-        +longitude+ "/%7Blat%7D/"+
-        latitude+
-        "/%7Blon%7D/dist/25/",
+        "url": "https://adsbx-flight-sim-traffic.p.rapidapi.com/api/aircraft/json/lat/"
+        +user_lat+
+        "/lon/"
+        +user_long+
+        "/dist/25/",
         "method": "GET",
         "headers": {
-            "X-RapidAPI-Key": "9a977024b3msh661b55182095c6cp18eed5jsn8f12205dd548",
+            "X-RapidAPI-Key": "14b1d448camshb054699cba611e9p136d93jsne124dc920477",
             "X-RapidAPI-Host": "adsbx-flight-sim-traffic.p.rapidapi.com"
         }
     };
-    
+    //AJAX is about loading data in the background and display it on the webpage, without reloading the whole page.
     $.ajax(settings).done(function (response) {
-        console.log(response);
+      /**Ajax response is already a JavaScript JSON object, so no more parsing is required. */
+      console.log(response);
+        var min = 100000;
+        var min_index= 0;
+        for (let i = 0; i < response.total;i++){
+          var lat2 = response.ac[i].lat;
+          var long2 = response.ac[i].lon;
+          if (response.ac[i].call == "") continue;
+          var x = haversine(user_lat,user_long,lat2,long2)
+          if (x < min){
+            min = x;
+            min_index = i;
+          }
+        }
+        console.log(response.ac[min_index].call);
+
     });
 
 
 }
+//haversine formula for calculating the distance between two points using longitude and latitude.
+function haversine(lat1, lon1, lat2, lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
+  var dLon = (lon2 - lon1) * Math.PI / 180;
+  var a = 
+     0.5 - Math.cos(dLat)/2 + 
+     Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+     (1 - Math.cos(dLon))/2;
+
+  return R * 2 * Math.asin(Math.sqrt(a));
+}
+
+
+
 //callback function to handle error
 function showError(error) {
     switch(error.code) {
