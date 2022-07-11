@@ -1,4 +1,6 @@
 var button= document.querySelector('#button');
+var callsign = document.querySelector('#callsign');
+var type = document.querySelector('#type');
 button.addEventListener("click",() => {
 //add function here
 /**this function utilize Geolocation API, but not all browsers supported them, so we need to wrap them 
@@ -53,10 +55,10 @@ function success(position) {
           }
         }
         console.log(response.ac[min_index].call);
+        callsign.textContent = "callsign: " +response.ac[min_index].call;
+        type.textContent = "type: " + response.ac[min_index].type;
 
     });
-
-
 }
 //haversine formula for calculating the distance between two points using longitude and latitude.
 function haversine(lat1, lon1, lat2, lon2) {

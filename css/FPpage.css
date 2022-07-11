@@ -39,6 +39,15 @@ body {
 #title_container{
     text-align: center;
 }
+#title_container h1{
+    font-family: "Raleway";
+    text-align: center;
+}
+#title_container p{
+    font-family: "Raleway";
+    text-align: center;
+}
 #button{
     box-shadow:  2px 2px 19px rgba(0,0,0,0.2);
+    font-family: "Raleway";
 }
