@@ -20,7 +20,7 @@ window.navigator.geolocation
 function success(position) {
     var user_long = position.coords.longitude;
     var user_lat = position.coords.latitude;
-    var my_key = config.ABDSX_key;
+    var my_key = keys.ABDSX_key;
 
     
     //sending a request using JQuerry
