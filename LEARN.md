@@ -52,10 +52,45 @@ or
 
     <button onclick = "document.getElementById('demo').innerHTML = something">Some Texst</button>
 
+## JavaScript Datatypes
+data type that can contain values
+- string - primitive - single simple data value with no additional properties and methods
+- number - primitive
+- boolean - primitive
+- object - complex
+- function - complex
+
+6 types of objects:
+- Object
+- Date
+- Array
+- String
+- Number
+- Boolean
+
+data type that contains no value
+- null
+- undefined
+
+Primitive string is different from Object String
+
+    var s = 'text'
+    s.charAt(i);
+    var ss = new String('test');
+    ss.charAt(i);
+
+s is primitive data type, no method other than a pointer to raw data memory reference. Faster random access speed.
+what will s.charAt(i) do? 
+- JS auto-box s to its wrapper type String, with typeof Object then applied the charAt() method.
+- auto-boxing will casts s back and forth as needed, but standard operations are fast.
 
 
 
+## JavaScript BitWise
+- JavaScript stored numbers as 64 bits. But uses 32 bits Bitwise Operands
+normal bitwise operand. AND (&) OR (|) NOT(~)  
 
+JavaScript uses 32 bits signed integers.
 
 
 

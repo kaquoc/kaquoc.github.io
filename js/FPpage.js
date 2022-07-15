@@ -93,11 +93,3 @@ function showError(error) {
     }
 }
 
-/**Google Map API */
-var map;
-function initMap(){
-  map = new google.maps.Map(document.getElementById("map"),{
-    center: {lat: 42.3601, lng: 71.0589},zoom: 8,
-  });
-}
-window.initMap = initMap;
