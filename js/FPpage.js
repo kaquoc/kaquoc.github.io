@@ -1,6 +1,12 @@
 var button= document.querySelector('#button');
 var callsign = document.querySelector('#callsign');
 var type = document.querySelector('#type');
+var testButton = document.querySelector('#testButton');
+
+const url = 'https://flightaware.com/live/flight/RPA5765';
+testButton.addEventListener("click", fetchContent(url));
+
+
 button.addEventListener("click",() => {
 //add function here
 /**this function utilize Geolocation API, but not all browsers supported them, so we need to wrap them 
@@ -9,8 +15,8 @@ button.addEventListener("click",() => {
  * one for success and one for failure
  * 
  */
-window.navigator.geolocation
-  .getCurrentPosition(success,showError);
+  window.navigator.geolocation
+    .getCurrentPosition(success,showError);
 });
 
 //callback function to handle success
@@ -58,6 +64,7 @@ function success(position) {
         callsign.textContent = "callsign: " +response.ac[min_index].call;
         type.textContent = "type: " + response.ac[min_index].type;
 
+
     });
 }
 //haversine formula for calculating the distance between two points using longitude and latitude.
@@ -75,7 +82,7 @@ function haversine(lat1, lon1, lat2, lon2) {
 
 
 
-//callback function to handle error
+//callback function to handle error when user's location cannot be fetch
 function showError(error) {
     switch(error.code) {
       case error.PERMISSION_DENIED:
@@ -93,3 +100,25 @@ function showError(error) {
     }
 }
 
+
+function fetchContent(URL){
+  //disable CORS: a cross domain security at client side which verify that server allowed to fetch data from your domian.
+  //Basically website server is verifying if your request comes from allowed domain list.
+  // https://linuxpip.org/fix-access-to-xmlhttprequest-has-been-blocked-by-cors-policy/
+  /**
+   *Some website enforced CORS policy  */
+  fetch(URL,
+    {mode: 'no-cors',
+    headers: {
+      'Access-Control-Allow-Origin':'*'
+    }
+    }
+    ).then(response => {
+    if(!response.ok){
+      console.log("error response status " + response.status);
+      console.log(response.text);
+    }else{
+      console.log(response.text());
+    }
+  })
+}

@@ -93,5 +93,29 @@ normal bitwise operand. AND (&) OR (|) NOT(~)
 JavaScript uses 32 bits signed integers.
 
 
+## JavaScript DOM Manipulation
+To handle DOM object in JavaScript, always assign it to variables, or constant.
+Window object represents the browser window
+
+    Document.querySelector('a') 
+
+is the modern approach to selecting an element using CSS selectors. 
+E.g, the above code with find the first 'a' in your document, to manipulate all element, use Document.querySelectorAll('a') which return 'a' is form of a Node List. (Recall every element in a DOM tree is represented as a node).
+
+    const element = Document.createElement('p')
+    element.textContent = "Hello world";
+
+Creating a new element.
+
+    const sect = Document.querySelector("section");
+    sect.appendChild(element);
+
+Appending child node under parent node
+
+You can also manipulate an element CSS style. Learn that more elsewhere.
 
 
+## Sources
+
+https://developer.mozilla.org/en-U
+https://www.w3schools.com/js/default.asp
