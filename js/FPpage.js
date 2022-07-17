@@ -4,7 +4,8 @@ var type = document.querySelector('#type');
 var testButton = document.querySelector('#testButton');
 
 const url = 'https://flightaware.com/live/flight/RPA5765';
-testButton.addEventListener("click", fetchContent(url));
+const url2 = 'https://vnexpress.net/';
+testButton.addEventListener("click", fetchContent(url2));
 
 
 button.addEventListener("click",() => {
@@ -99,19 +100,30 @@ function showError(error) {
         break;
     }
 }
+  /**
+   *Some website enforced CORS policy  
+   kaquoc.github.io JS file ------------Some Request -------> some URL
 
+
+   'no-access-control -allow-origin-header error'
+   this means that our script attempts to make a request to a resource that isn't configured to accept requests coming from
+   source with different (sub)domain. Thus violating Same-Origin policy.
+   */
 
 function fetchContent(URL){
   //disable CORS: a cross domain security at client side which verify that server allowed to fetch data from your domian.
   //Basically website server is verifying if your request comes from allowed domain list.
+ //-------Some Resources---------
+  //https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
   // https://linuxpip.org/fix-access-to-xmlhttprequest-has-been-blocked-by-cors-policy/
-  /**
-   *Some website enforced CORS policy  */
+  //https://www.stackhawk.com/blog/fixing-no-access-control-allow-origin-header-present/
   fetch(URL,
-    {mode: 'no-cors',
+    {
+    mode: 'cors',
     headers: {
-      'Access-Control-Allow-Origin':'*'
-    }
+      'Access-Control-Allow-Origin' : '*'
+    },
+    referrerPolicy: 'no-referrer',
     }
     ).then(response => {
     if(!response.ok){
@@ -121,4 +133,22 @@ function fetchContent(URL){
       console.log(response.text());
     }
   })
+}
+
+
+function cross(){
+  var cors_api_host = 'cors-anywhere.herokuapp.com';
+  var cors_api_url = 'https://' + cors_api_host + '/';
+  var slice = [].slice;
+  var origin = window.location.protocol + '//' + window.location.host;
+  var open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function() {
+    var args = slice.call(arguments);
+    var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+    if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
+        targetOrigin[1] !== cors_api_host) {
+        args[1] = cors_api_url + args[1];
+    }
+    return open.apply(this, args);
+  };
 }
