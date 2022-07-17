@@ -135,7 +135,7 @@ function fetchContent(URL){
   })
 }
 
-
+//Using a reverse proxy server to solve CORS issues
 function cross(){
   var cors_api_host = 'cors-anywhere.herokuapp.com';
   var cors_api_url = 'https://' + cors_api_host + '/';
