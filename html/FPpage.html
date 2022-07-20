@@ -29,17 +29,27 @@
     <div id = "title_container">
       <h1>Flight Pointer (Web)</h1>
       <button id = "button">Find nearest aircraft to me</button>
-      <p id = "callsign">Nearest Aircraft callsign</p>
-      <p id = "type">Nearest Aircraft type</p>
-      <button id = "testButton">Test Button</button>
+      <button id = "test_button">test</button>
+
+       <!--Creating a pop up card displaying the aircraft information. Card name: modal-->
+      <div id = "modal">
+        <div id = "modal_content">
+          <p id = "callsign">Nearest Aircraft callsign</p>
+          <p id = "type">Nearest Aircraft type</p>
+        </div>
+      </div>
+
+      <a href="https://github.com/kaquoc/kaquoc.github.io" target="blank">
+        <input id = "GH_link" type="button" value="Visit Repository"  />
+     </a>
+
+    
+     
     </div>
     
     <div id ="map"></div>
     
     <script src = "../config.js" type = 'text/javascript'></script>
     <script src = "../js/FPpage.js" type="text/javascript"></script>
-    <script src = "https://maps.googleapis.com/maps/api/js?key=callback=initMap&v=weekly"
-      defer
-    ></script>
   </body>
 </html>

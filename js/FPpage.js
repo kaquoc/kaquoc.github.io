@@ -1,11 +1,16 @@
 var button= document.querySelector('#button');
 var callsign = document.querySelector('#callsign');
 var type = document.querySelector('#type');
-var testButton = document.querySelector('#testButton');
+
+var modal = document.getElementById('modal');
+var test = document.getElementById('test_button');
 
 const url = 'https://flightaware.com/live/flight/RPA5765';
 const url2 = 'https://vnexpress.net/';
-testButton.addEventListener("click", fetchContent(url2));
+
+test.addEventListener("click",() =>{
+  modal.style.display = "block";
+}) 
 
 
 button.addEventListener("click",() => {
@@ -19,6 +24,13 @@ button.addEventListener("click",() => {
   window.navigator.geolocation
     .getCurrentPosition(success,showError);
 });
+
+/**When the user clicks anywhere outside of the modal, close it */
+window.onclick = function(event) {
+  if (event.target == modal){
+    modal.style.display = "none";
+  }
+}
 
 //callback function to handle success
 /**getCurrentPosition return an coords object when success
@@ -61,7 +73,7 @@ function success(position) {
             min_index = i;
           }
         }
-        console.log(response.ac[min_index].call);
+        //console.log(response.ac[min_index].call);
         callsign.textContent = "callsign: " +response.ac[min_index].call;
         type.textContent = "type: " + response.ac[min_index].type;
 
@@ -100,55 +112,14 @@ function showError(error) {
         break;
     }
 }
-  /**
-   *Some website enforced CORS policy  
-   kaquoc.github.io JS file ------------Some Request -------> some URL
 
+function fetchData(){
+  fetch('https://cors-anywhere.herokuapp.com/https://flightaware.com/live/flight/RPA5765').then(response => console.log(response.textContent));
+  $.ajax({ url: 'https://cors-anywhere.herokuapp.com/https://flightaware.com/live/flight/RPA5765', 
+  success: function(data) { 
+    
+    console.log(data); 
+  
+  } });
 
-   'no-access-control -allow-origin-header error'
-   this means that our script attempts to make a request to a resource that isn't configured to accept requests coming from
-   source with different (sub)domain. Thus violating Same-Origin policy.
-   */
-
-function fetchContent(URL){
-  //disable CORS: a cross domain security at client side which verify that server allowed to fetch data from your domian.
-  //Basically website server is verifying if your request comes from allowed domain list.
- //-------Some Resources---------
-  //https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
-  // https://linuxpip.org/fix-access-to-xmlhttprequest-has-been-blocked-by-cors-policy/
-  //https://www.stackhawk.com/blog/fixing-no-access-control-allow-origin-header-present/
-  fetch(URL,
-    {
-    mode: 'cors',
-    headers: {
-      'Access-Control-Allow-Origin' : '*'
-    },
-    referrerPolicy: 'no-referrer',
-    }
-    ).then(response => {
-    if(!response.ok){
-      console.log("error response status " + response.status);
-      console.log(response.text);
-    }else{
-      console.log(response.text());
-    }
-  })
-}
-
-//Using a reverse proxy server to solve CORS issues
-function cross(){
-  var cors_api_host = 'cors-anywhere.herokuapp.com';
-  var cors_api_url = 'https://' + cors_api_host + '/';
-  var slice = [].slice;
-  var origin = window.location.protocol + '//' + window.location.host;
-  var open = XMLHttpRequest.prototype.open;
-  XMLHttpRequest.prototype.open = function() {
-    var args = slice.call(arguments);
-    var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-    if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-        targetOrigin[1] !== cors_api_host) {
-        args[1] = cors_api_url + args[1];
-    }
-    return open.apply(this, args);
-  };
 }
