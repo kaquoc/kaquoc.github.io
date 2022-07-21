@@ -4,6 +4,8 @@ This project purpose is to help build my Computer Science portfolio and allow my
 
 Lets get crafting!
 
+Link for local file: ///Users/kaka/Website/kaquoc.github.io/index.html
+
 ## Goal
 The purpose of this project is to:
 - Improve my understanding on UI design through HTML and CSS. 
