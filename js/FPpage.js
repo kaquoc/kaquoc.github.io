@@ -3,14 +3,12 @@ var callsign = document.querySelector('#callsign');
 var type = document.querySelector('#type');
 
 var modal = document.getElementById('modal');
-var test = document.getElementById('test_button');
+
 
 const url = 'https://flightaware.com/live/flight/RPA5765';
 const url2 = 'https://vnexpress.net/';
 
-test.addEventListener("click",() =>{
-  modal.style.display = "block";
-}) 
+
 
 
 button.addEventListener("click",() => {
@@ -21,8 +19,11 @@ button.addEventListener("click",() => {
  * one for success and one for failure
  * 
  */
+  modal.style.display = "block";
+  
   window.navigator.geolocation
-    .getCurrentPosition(success,showError);
+    .getCurrentPosition(success,showError); 
+ 
 });
 
 /**When the user clicks anywhere outside of the modal, close it */
@@ -121,5 +122,4 @@ function fetchData(){
     console.log(data); 
   
   } });
-
 }
