@@ -9,8 +9,8 @@ var loader = document.getElementById('loader');
 
 
 
-var global_user_lat;
-var global_user_long;
+var global_user_lat =0;
+var global_user_long=0;
 
 
 button.addEventListener("click",() => {
@@ -45,8 +45,8 @@ window.onclick = function(event) {
 function success(position) {
     var user_long = position.coords.longitude;
     var user_lat = position.coords.latitude;
-    global_user_lat = user_lat;
-    global_user_long = user_long;
+    global_user_lat = parseFloat(user_lat);
+    global_user_long = parseFloat(user_long);
     var my_key = keys.ABDSX_key;
 
     
@@ -126,16 +126,6 @@ function showError(error) {
        console.log("An unknown error occurred.");
         break;
     }
-}
-
-function fetchData(){
-  fetch('https://cors-anywhere.herokuapp.com/https://flightaware.com/live/flight/RPA5765').then(response => console.log(response.textContent));
-  $.ajax({ url: 'https://cors-anywhere.herokuapp.com/https://flightaware.com/live/flight/RPA5765', 
-  success: function(data) { 
-    
-    console.log(data); 
-  
-  } });
 }
 
 
