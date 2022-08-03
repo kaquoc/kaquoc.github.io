@@ -9,8 +9,15 @@ var loader = document.getElementById('loader');
 
 
 
-var global_user_lat =0;
-var global_user_long=0;
+var global_user_lat;
+var global_user_long;
+
+
+
+
+  
+window.navigator.geolocation
+.getCurrentPosition(success,showError); 
 
 
 button.addEventListener("click",() => {
@@ -23,10 +30,6 @@ button.addEventListener("click",() => {
  */
 
 
-  
-  window.navigator.geolocation
-    .getCurrentPosition(success,showError); 
- 
   modal.style.display = "block";
   
 });
@@ -42,11 +45,10 @@ window.onclick = function(event) {
 /**getCurrentPosition return an coords object when success
  * which could be access using coords.longitude or coords.latitude
  */
-function success(position) {
-    var user_long = position.coords.longitude;
-    var user_lat = position.coords.latitude;
-    global_user_lat = parseFloat(user_lat);
-    global_user_long = parseFloat(user_long);
+function getFlight() {
+    var user_long = global_user_long;
+    var user_lat = global_user_lat;
+
     var my_key = keys.ABDSX_key;
 
     
@@ -108,7 +110,20 @@ function haversine(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.asin(Math.sqrt(a));
 }
 
+function success(position){
+  global_user_long = position.coords.longitude;
+  global_user_lat = position.coords.latitude;
+  console.log(global_user_lat + " " + global_user_long);
+  getFlight();
 
+  var marker = new google.maps.Marker({
+    position: {lat: parseFloat(global_user_lat),lng: parseFloat(global_user_long)},
+    title: "user location"
+  })
+  map.setCenter({lat: global_user_lat, lng: global_user_long});
+  marker.setMap(map);
+
+}
 
 //callback function to handle error when user's location cannot be fetch
 function showError(error) {
@@ -129,3 +144,15 @@ function showError(error) {
 }
 
 
+function initMap() {
+  //two require parameter for map, center and zoom
+  const myLatLng = { lat: parseFloat(global_user_lat), lng: parseFloat(global_user_long) };
+  
+  map = new google.maps.Map(document.getElementById("map"), {
+      center: {lat: 0, lng: 0},
+      zoom: 8,
+    });
+  
+}
+
+window.initMap = initMap;
