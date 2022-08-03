@@ -18,7 +18,7 @@ The purpose of this project is to:
 
 ### Mini Projects
 The website also contains some smaller projects within it!
- 1. FlightPointer Web edition
+1. FlightPointer Web edition
     A web application of FlightPointer application create using JavaScript. Calling ABDSX API to get information about flights in the 25 miles radius.
     Use flight coordinate and user's location to calculate the closest flight.
     Return its information and image through web scraping.
@@ -35,6 +35,9 @@ The website also contains some smaller projects within it!
             https://linuxpip.org/fix-access-to-xmlhttprequest-has-been-blocked-by-cors-policy/
 
             https://www.stackhawk.com/blog/fixing-no-access-control-allow-origin-header-present/
+
+2. Simple Stress Test Program
+    A Java stress test program that simulate CPU load using multithreading and some calculation to generate load. I have a separate documentation in the Stress Test GitHub that you can read there.
 
 
 

@@ -6,10 +6,11 @@ var modal = document.getElementById('modal');
 
 var loader = document.getElementById('loader');
 
-const url = 'https://flightaware.com/live/flight/RPA5765';
-const url2 = 'https://vnexpress.net/';
 
 
+
+var global_user_lat;
+var global_user_long;
 
 
 button.addEventListener("click",() => {
@@ -44,6 +45,8 @@ window.onclick = function(event) {
 function success(position) {
     var user_long = position.coords.longitude;
     var user_lat = position.coords.latitude;
+    global_user_lat = user_lat;
+    global_user_long = user_long;
     var my_key = keys.ABDSX_key;
 
     
