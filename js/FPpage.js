@@ -14,7 +14,6 @@ var global_user_long;
 
 
 
-
   
 window.navigator.geolocation
 .getCurrentPosition(success,showError); 
@@ -93,6 +92,14 @@ function getFlight() {
 
         loader.style.display = "none";
 
+        //set airplane marker on the map
+        var flight_marker = new google.maps.Marker({
+          position: {lat: parseFloat(response.ac[min_index].lat), lng: parseFloat(response.ac[min_index].lon)},
+          title: "flight location",
+          map: map,
+          icon: "../images/icons8-plane-32.png"
+        })
+
 
 
     });
@@ -110,6 +117,8 @@ function haversine(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.asin(Math.sqrt(a));
 }
 
+
+/**Success callback method for getting user location, set map center to user location */
 function success(position){
   global_user_long = position.coords.longitude;
   global_user_lat = position.coords.latitude;
@@ -144,13 +153,15 @@ function showError(error) {
 }
 
 
+
+/**Initiating the Google Map with center at 0,0, center will change as soon as user allow location permission on browser. */
 function initMap() {
   //two require parameter for map, center and zoom
   const myLatLng = { lat: parseFloat(global_user_lat), lng: parseFloat(global_user_long) };
   
   map = new google.maps.Map(document.getElementById("map"), {
       center: {lat: 0, lng: 0},
-      zoom: 8,
+      zoom: 13,
     });
   
 }
