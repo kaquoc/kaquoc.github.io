@@ -11,7 +11,7 @@ body {
 }
 #navbar a {
     text-decoration: none;
-    color: var(--text_gray);
+    color: var(--text_black);
     padding: 20px;
     font-family: calibri;
     font-size: 15px;
