@@ -38,8 +38,15 @@
     </div>
     
     <script>
+        let availableNumbers = Array.from({length: 1100}, (_, i) => i + 1);
+        
         function generateRandom() {
-            let randomNumber = Math.floor(Math.random() * 100) + 1; // Generates 1-100
+            if (availableNumbers.length === 0) {
+                document.getElementById("result").innerText = "All numbers have been used!";
+                return;
+            }
+            let randomIndex = Math.floor(Math.random() * availableNumbers.length);
+            let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
             document.getElementById("result").innerText = "Random Number: " + randomNumber;
         }
     </script>
