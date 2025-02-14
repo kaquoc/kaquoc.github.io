@@ -10,7 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background: url('background.jpg') no-repeat center center fixed; background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -58,7 +58,7 @@
     <div class="container">
         <img src="LOGO CTY.png" alt="Logo" style="width: 100%; display: block; margin: 0 auto 20%;">
         <h1>TIỆC TÂN NIÊN 2025</h1>
-        <h1>CŨ MỚI NGƯỜI TA - SAN SẺ NIỀM VUI</h1>
+        <h1>Chương Trình Từ Thiện - Vận May Trong Tay</h1>
         <p>VÒNG QUAY MAY MẮN</p>
         <button onclick="generateRandom()">QUAY THÔI!</button>
         <p id="result"></p>
@@ -81,12 +81,12 @@
             let iterations = 50; // Number of random flickering numbers before final result
             let count = 0;
             let interval = setInterval(() => {
-                document.getElementById("result").innerText = "SỐ MAY MẮN " + (Math.floor(Math.random() * 1100) + 1);
+                document.getElementById("result").innerText = "SỐ MAY MẮN: " + (Math.floor(Math.random() * 1100) + 1);
                 document.getElementById("result").style.transform = "scale(1.1)";
                 count++;
                 if (count >= iterations) {
                     clearInterval(interval);
-                    document.getElementById("result").innerText = "SỐ MAY MẮN " + randomNumber;
+                    document.getElementById("result").innerText = "SỐ MAY MẮN: " + randomNumber;
                     document.getElementById("result").style.transform = "scale(1)";
                    
                 }
