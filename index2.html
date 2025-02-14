@@ -1,0 +1,188 @@
+
+                    <!--This is a local URL-->
+<!--MAC: file:///Users/kaka/Website/kaquoc.github.io/index.html-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        
+    <!--Local Link to different .css files-->
+
+        <link href="css/index.css" rel = "stylesheet" type ="text/css">
+        <link href="css/animation_func.css" rel = "stylesheet" type ="text/css">
+        <link href="css/cartoon_figure.css" rel = "stylesheet" type ="text/css">
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet"/>
+
+        <!-- social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <!--start of BODY section, where the main content will go-->
+    <body>
+            <!--navigation bar up top------------->
+        <section id ="topbar">
+            <nav id = "navbar">
+                <ul>
+                    <li>
+                        <a href = "#about">About me</a>
+                    </li>
+                    <li>
+                        <a href = "#project">Projects</a>
+                    </li>
+                    <li>
+                        <a href = "#contacts">Contacts</a>
+                    </li>
+                </ul>
+                
+            </nav>
+        </section>
+    
+    <!--Intro and self-portrait section-->
+    <div id = "hello-container">
+        <p id = "text1">Hello,</p>
+        <p id ="text2">I'M KAY</p>
+        <p id ="text3">a computer scientist</p>
+    </div>
+
+     <!--cartoon figure of myself goes heres
+    Structure: 
+    cartoon -> { shoulders,hair-back, neck,ear ha hb, ear ha hb, 
+                    face -> {cheek, nose,mouth,
+                        eye -> {pupil, eye-bright, eyebrow, eyebrow}}}
+    
+    
+    -->
+    <div class = "cartoon">
+        <div class="shoulders"></div>
+        <div class="shirt-neck"></div>
+        <div class="shirt-neck"></div>
+        <div class="neck"></div>
+        <div class="hair-back"></div>
+        <div class="ear ha hb"></div>
+        <div class="ear ha hb"></div>
+        
+        <div class = "face">
+          <div class="nose"></div>
+          <div class="mouth"></div>
+          <div class = "glasses"></div>
+          <div class = "glasses"></div>
+
+          <div id = "eye1">
+            <div id = "pupil_right"></div>
+          </div>
+
+          <div id = "eye2">
+            <div id = "pupil_left"></div>
+          </div>
+
+          <div class="frame"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairbang"></div>
+          <div class = "hairtop"></div>
+          <div class = "hairtop"></div>
+          <div class = "hairtop"></div>
+      
+        </div>
+        
+      </div>
+
+
+
+    
+    <script src = "js/script.js" type="text/javascript" target = "_blank"></script>
+
+    <!--- ABOUT SECTION: parent container: body---------->
+    <section id = "about-container">
+        <div id = "about">
+            <h3>About Me</h3>
+            <h4>Undergraduate & Developer
+            </h4>
+            <p> I'm eager to learn new things, wheather it be gardening or programming, I will always open to learning new concepts 
+                and knowledge. I'm currently self-learning basic front-end developming using HTML, CSS and JavaScript (hopefully React
+                semester). Passionate about computer system and computer networking.
+            </p>
+            
+            <a href ="Resume.pdf">Download CV</a>
+        </div>
+    </section>
+
+
+    <!--PROJECTS SECTION: parent container: body-->
+    <section id = "projects-container">
+        <div id = "project">
+            <h3>Personal Projects</h3>
+            <h4>The projects I have created over the years.</h4>
+        </div>
+        <div class = "cards">
+             <!--Panel for Flight Pointer Android-->
+            <a class = "project-card" href = "https://github.com/kaquoc/FlightPointer-AS" target = "_blank">
+                <img src="images/FP_pg1.png" alt="FlightPointer intro screen" style="width: 100%">
+                <div class ="panel_container">
+                    <h4>FlightPointer</h4>
+                    <p>FlightPointer provides a simple 
+                    app that displays the name and location of the aircraft nearest to the user's longitude and lattitude. </p>
+                </div>
+            </a>
+            <!--Panel for Flight Pointer web-->
+            <a class = "project-card" href = "html/FPpage.html" target = "_blank">
+                <img src="images/FP_web.png" alt="FlightPointer web screen" style="width: 100%">
+                <div class ="panel_container">
+                    <h4>FlightPointer</h4>
+                    <p>FlightPointer web version that shows the basic of FlightPointer. The application will call an ABDSX API to gather 
+                        data about all aircrafts in the 25 nautical miles vicinty and return the closest aircraft. </p>
+                </div>
+            </a>
+
+            <!--Panel for Stress Test-->
+            <a class = "project-card" href = "https://github.com/kaquoc/StressTest/tree/master" target = "_blank">
+                <img src="images/stress_test.png" alt="stress test terminal image" style="width: 100%">
+                <div class ="panel_container">
+                    <h4>Stress Test</h4>
+                    <p>A simple stress test program that utilize Java multithreading to generate CPU load for a period of time. </p>
+                </div>
+            </a>
+            <!--Panel VLeague football-->
+            <a class = "project-card" href = "" target = "_blank">
+                <img src="images/stress_test.png" alt="stress test terminal image" style="width: 100%">
+                <div class ="panel_container">
+                    <h4>VLeague API & Database</h4>
+                    <p>API for retrieving information about the Vietnamese First Tier Football League. Developed using NodeJS and 
+                        ExpressJS. Database deployed on Heroku and implemented using PostgreSQL. [Still under development]
+                    </p>
+                </div>
+            </a>
+        </div>
+
+
+    </section>
+
+
+
+
+        
+    </body>
+
+    <!-- SOCIAL MEDIA LINKS-->
+    <footer id ="contacts">
+        <p>Here are my social-infos</p>
+        <div class = "social-icons">
+            <a href = "https://www.facebook.com/whyareureadingthisanw/" target ="_blank" class = "fa fa-facebook"></a>
+            <a href = "https://github.com/kaquoc" target ="_blank" class = "fa fa-git"></a>
+            <a href = "https://www.linkedin.com/in/ka-nguyen-01b31414b/" target ="_blank" class = "fa fa-linkedin"></a>
+        </div>
+    </footer>
+
+</html>
+
+
