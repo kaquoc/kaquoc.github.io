@@ -31,9 +31,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Random Number Generator</h1>
-        <p>Click the button to generate a random number.</p>
-        <button onclick="generateRandom()">Generate</button>
+        <h1>CŨ MỚI NGƯỜI TA - SAN SẺ NIỀM VUI</h1>
+        <p>VÒNG QUAY MAY MẮN</p>
+        <button onclick="generateRandom()">QUAY THÔI!</button>
         <p id="result"></p>
     </div>
     
@@ -45,9 +45,20 @@
                 document.getElementById("result").innerText = "All numbers have been used!";
                 return;
             }
+            
             let randomIndex = Math.floor(Math.random() * availableNumbers.length);
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
-            document.getElementById("result").innerText = "Random Number: " + randomNumber;
+            
+            let iterations = 10; // Number of random flickering numbers before final result
+            let count = 0;
+            let interval = setInterval(() => {
+                document.getElementById("result").innerText = "Random Number: " + (Math.floor(Math.random() * 1100) + 1);
+                count++;
+                if (count >= iterations) {
+                    clearInterval(interval);
+                    document.getElementById("result").innerText = "Random Number: " + randomNumber;
+                }
+            }, 100);
         }
     </script>
 </body>
