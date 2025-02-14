@@ -78,7 +78,6 @@
             let randomIndex = Math.floor(Math.random() * availableNumbers.length);
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
             pickedNumbers.push(randomNumber);
-            document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
             
             let iterations = 120; // Number of random flickering numbers before final result
             let count = 0;
@@ -90,9 +89,9 @@
                     clearInterval(interval);
                     document.getElementById("result").innerText = "SỐ MAY MẮN: " + randomNumber;
                     document.getElementById("result").style.transform = "scale(1)";
-                   
                 }
             }, 20);
+            document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
         }
 
     </script>
