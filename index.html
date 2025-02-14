@@ -62,12 +62,12 @@
         <p>VÒNG QUAY MAY MẮN</p>
         <button onclick="generateRandom()">QUAY THÔI!</button>
         <p id="result"></p>
+        <div id="pickedNumbers"><strong>Các số may mắn:</strong> <span id="pickedList"></span></div>
     </div>
     
     <script>
         let availableNumbers = Array.from({length: 1100}, (_, i) => i + 1);
-
-        
+        let pickedNumbers = [];
         
         function generateRandom() {
             if (availableNumbers.length === 0) {
@@ -77,8 +77,10 @@
             
             let randomIndex = Math.floor(Math.random() * availableNumbers.length);
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
+            pickedNumbers.push(randomNumber);
+            document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
             
-            let iterations = 50; // Number of random flickering numbers before final result
+            let iterations = 120; // Number of random flickering numbers before final result
             let count = 0;
             let interval = setInterval(() => {
                 document.getElementById("result").innerText = "SỐ MAY MẮN: " + (Math.floor(Math.random() * 1100) + 1);
@@ -90,7 +92,7 @@
                     document.getElementById("result").style.transform = "scale(1)";
                    
                 }
-            }, 25);
+            }, 20);
         }
 
     </script>
