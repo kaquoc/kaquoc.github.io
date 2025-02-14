@@ -66,30 +66,7 @@
     
     <script>
         let availableNumbers = Array.from({length: 1100}, (_, i) => i + 1);
-        
-        function generateRandom() {
-            if (availableNumbers.length === 0) {
-                document.getElementById("result").innerText = "All numbers have been used!";
-                return;
-            }
-            
-            let randomIndex = Math.floor(Math.random() * availableNumbers.length);
-            let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
-            
-            let iterations = 50; // Number of random flickering numbers before final result
-            let count = 0;
-            let interval = setInterval(() => {
-                document.getElementById("result").innerText = "SỐ MAY MẮN " + (Math.floor(Math.random() * 1100) + 1);
-                document.getElementById("result").style.transform = "scale(1.1)";
-                count++;
-                if (count >= iterations) {
-                    clearInterval(interval);
-                    document.getElementById("result").innerText = "SỐ MAY MẮN " + randomNumber;
-                    document.getElementById("result").style.transform = "scale(1)";
-                    createFireworkEffect();
-                }
-            }, 25);
-        }
+
         function createFireworkEffect() {
             const canvas = document.getElementById("fireworks");
             const ctx = canvas.getContext("2d");
@@ -142,6 +119,31 @@
             setTimeout(() => createParticles(window.innerWidth / 2, window.innerHeight / 2), 100);
             setTimeout(() => setTimeout(() => canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height), 2000), 500);
         }
+        
+        function generateRandom() {
+            if (availableNumbers.length === 0) {
+                document.getElementById("result").innerText = "All numbers have been used!";
+                return;
+            }
+            
+            let randomIndex = Math.floor(Math.random() * availableNumbers.length);
+            let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
+            
+            let iterations = 50; // Number of random flickering numbers before final result
+            let count = 0;
+            let interval = setInterval(() => {
+                document.getElementById("result").innerText = "SỐ MAY MẮN " + (Math.floor(Math.random() * 1100) + 1);
+                document.getElementById("result").style.transform = "scale(1.1)";
+                count++;
+                if (count >= iterations) {
+                    clearInterval(interval);
+                    document.getElementById("result").innerText = "SỐ MAY MẮN " + randomNumber;
+                    document.getElementById("result").style.transform = "scale(1)";
+                    createFireworkEffect();
+                }
+            }, 25);
+        }
+
     </script>
 </body>
 </html>
