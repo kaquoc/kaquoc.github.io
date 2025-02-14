@@ -89,9 +89,9 @@
                     clearInterval(interval);
                     document.getElementById("result").innerText = "SỐ MAY MẮN: " + randomNumber;
                     document.getElementById("result").style.transform = "scale(1)";
+                    document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
                 }
             }, 20);
-            document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
         }
 
     </script>
