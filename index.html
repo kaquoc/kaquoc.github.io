@@ -77,15 +77,12 @@
         let interval;
 
         function toggleRandom() {
-            let button = document.getElementById("generateButton");
             if (generating) {
                 clearInterval(interval);
                 generating = false;
-                button.innerText = "QUAY THÔI!";
                 finalizeNumber();
             } else {
                 generating = true;
-                button.innerText = "DỪNG!";
                 interval = setInterval(() => {
                     document.getElementById("result").innerText = "Random Number: " + (Math.floor(Math.random() * 1100) + 1);
                 }, 25);
