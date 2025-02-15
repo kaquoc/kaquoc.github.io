@@ -79,15 +79,15 @@
         function toggleRandom() {
             let button = document.getElementById("generateButton");
             if (generating) {
-                button.innerText = "QUAY";
+                button.innerText = "QUAY THÔI!";
                 clearInterval(interval);
                 generating = false;
                 finalizeNumber();
             } else {
                 generating = true;
-                button.innerText = "Dừng";
+                button.innerText = "DỪNG QUAY!";
                 interval = setInterval(() => {
-                    document.getElementById("result").innerText = "Số may mắn: " + (Math.floor(Math.random() * 1100) + 1);
+                    document.getElementById("result").innerText = "SỐ MAY MẮN:" + (Math.floor(Math.random() * 1100) + 1);
                 }, 25);
             }
         }
