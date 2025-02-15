@@ -64,7 +64,7 @@
         <h1>TIỆC TÂN NIÊN 2025</h1>
         <h1>Chương Trình Từ Thiện - Vận May Trong Tay</h1>
         <p>VÒNG QUAY MAY MẮN</p>
-        <button onclick="generateRandom()">QUAY THÔI!</button>
+        <button onclick="toggleRandom()">QUAY THÔI!</button>
         <p id="result"></p>
         <div id="pickedNumbers"><strong>Các số may mắn:</strong> <span id="pickedList"></span></div>
         <button id="clearButton" onclick="clearList()">Vòng mới</button>
@@ -73,6 +73,33 @@
     <script>
         let availableNumbers = Array.from({length: 1100}, (_, i) => i + 1);
         let pickedNumbers = [];
+        let generating = false;
+        let interval;
+
+        function toggleRandom() {
+            if (generating) {
+                clearInterval(interval);
+                generating = false;
+                finalizeNumber();
+            } else {
+                generating = true;
+                interval = setInterval(() => {
+                    document.getElementById("result").innerText = "Random Number: " + (Math.floor(Math.random() * 1100) + 1);
+                }, 25);
+            }
+        }
+        function finalizeNumber() {
+            if (availableNumbers.length === 0) {
+                document.getElementById("result").innerText = "All numbers have been used!";
+                return;
+            }
+            
+            let randomIndex = Math.floor(Math.random() * availableNumbers.length);
+            let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
+            pickedNumbers.push(randomNumber);
+            document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
+            document.getElementById("result").innerText = "SỐ MAY MẮN:" + randomNumber;
+        }
         
         function generateRandom() {
             if (availableNumbers.length === 0) {
