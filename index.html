@@ -64,7 +64,7 @@
         <h1>TIỆC TÂN NIÊN 2025</h1>
         <h1>Chương Trình Từ Thiện - Vận May Trong Tay</h1>
         <p>VÒNG QUAY MAY MẮN</p>
-        <button onclick="toggleRandom()">QUAY THÔI!</button>
+        <button id="generateButton" onclick="toggleRandom()">QUAY THÔI!</button>
         <p id="result"></p>
         <div id="pickedNumbers"><strong>Các số may mắn:</strong> <span id="pickedList"></span></div>
         <button id="clearButton" onclick="clearList()">Vòng mới</button>
@@ -77,14 +77,17 @@
         let interval;
 
         function toggleRandom() {
+            let button = document.getElementById("generateButton");
             if (generating) {
+                button.innerText = "QUAY";
                 clearInterval(interval);
                 generating = false;
                 finalizeNumber();
             } else {
                 generating = true;
+                button.innerText = "Dừng";
                 interval = setInterval(() => {
-                    document.getElementById("result").innerText = "Random Number: " + (Math.floor(Math.random() * 1100) + 1);
+                    document.getElementById("result").innerText = "Số may mắn: " + (Math.floor(Math.random() * 1100) + 1);
                 }, 25);
             }
         }
