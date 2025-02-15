@@ -69,7 +69,7 @@
         <div id="pickedNumbers"><strong>Các số may mắn:</strong> <span id="pickedList"></span></div>
         <button id="clearButton" onclick="clearList()">Vòng mới</button>
     </div>
-    <audio id="clickSound" src="Sound.mp3"></audio>
+    
     <script>
         let availableNumbers = Array.from({length: 1100}, (_, i) => i + 1);
         let pickedNumbers = [];
@@ -78,16 +78,13 @@
 
         function toggleRandom() {
             let button = document.getElementById("generateButton");
-            let sound = document.getElementById("clickSound");
-            sound.play();
 
             if (generating) {
                 button.innerText = "QUAY THÔI!";
                 clearInterval(interval);
                 generating = false;
                 finalizeNumber();
-                sound.pause();
-                sound.currentTime = 0;
+
             } else {
                 generating = true;
                 button.innerText = "DỪNG QUAY!";
