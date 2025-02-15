@@ -93,7 +93,7 @@
                 button.innerText = "DỪNG QUAY!";
             
                 interval = setInterval(() => {
-                    document.getElementById("result").innerText = "SỐ MAY MẮN:" + (Math.floor(Math.random() * 1100) + 1);
+                    document.getElementById("result").innerText = "SỐ MAY MẮN: " + (Math.floor(Math.random() * 1100) + 1);
                 }, 25);
             }
         }
@@ -107,7 +107,7 @@
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
             pickedNumbers.push(randomNumber);
             document.getElementById("pickedList").innerText = pickedNumbers.join(", ");
-            document.getElementById("result").innerText = "SỐ MAY MẮN:" + randomNumber;
+            document.getElementById("result").innerText = "SỐ MAY MẮN: " + randomNumber;
         }
         
         function generateRandom() {
