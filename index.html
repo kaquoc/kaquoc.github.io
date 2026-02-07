@@ -117,7 +117,7 @@
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
             pickedNumbers.push(randomNumber);
             
-            let iterations = 120; // Number of random flickering numbers before final result
+            let iterations = 200; // Number of random flickering numbers before final result
             let count = 0;
             let interval = setInterval(() => {
                 document.getElementById("result").innerText = "SỐ MAY MẮN: " + (Math.floor(Math.random() * 1200) + 1);
