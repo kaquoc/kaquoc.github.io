@@ -102,11 +102,11 @@
             
             let randomIndex = Math.floor(Math.random() * availableNumbers.length);
             let randomNumber = availableNumbers.splice(randomIndex, 1)[0];
-            
+
             //push adjadcent 50 numbers into the list to avoid close repeats
         
-            const min = Math.max(1, randomNumber - 50);
-            const max = Math.min(1200, randomNumber + 50);
+            const min = Math.max(1, randomNumber - 10);
+            const max = Math.min(1200, randomNumber + 10);
             availableNumbers = availableNumbers.filter(
                 n => n < min || n > max
             );
